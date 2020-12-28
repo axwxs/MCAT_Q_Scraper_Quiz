@@ -39,7 +39,7 @@ while True:
         answer = str(input('Run again? (Y/N): '))
         if answer in ('Y', 'N'):
             break
-        print("invalid input.")
+        print("Invalid input")
     if answer == 'Y':
         continue
     else:
