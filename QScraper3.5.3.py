@@ -5,29 +5,27 @@ import random
 
 
 while True:
-    # main program
+    # Main Program
     source = requests.get('http://mcatquestionoftheday.com/?task=randompost').text
     soup = BeautifulSoup(source, 'lxml')
-
-    # print(soup.prettify())
 
     question = soup.find('div', class_='entry').find('p', style="text-align: center;").text
     question2 = soup.find('div', class_= 'entry').find_all('label')
 
+    # Currently only works for one paragraph questions w/o images
     print(question)
     print()
     for i in question2:
             print(i.text)
 
-    # question2 = soup.find('div', class_= 'entry')
-    # print(question2.prettify())
 
     answer = soup.find('div', class_ = 'entry').find('strong')
     final_answer = list(answer.text)[-2]
 
     print('\n\n\n\n\n\n')
     then = time.time()
-
+    
+    # Answer must be in capital letters with options A, B, C, or D
     while True:
         attempt = input('The answer is: ')
         if attempt == final_answer:
@@ -36,7 +34,7 @@ while True:
         else:
                 print('Incorrect')
             
-        
+    # Answer Y or N to get another question    
     while True:
         answer = str(input('Run again? (Y/N): '))
         if answer in ('Y', 'N'):
