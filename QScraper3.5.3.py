@@ -33,7 +33,7 @@ while True:
         else:
                 print('Incorrect')
             
-    # Answer Y or N to get another question    
+    # Answer Y to get another question or N to finish   
     while True:
         answer = str(input('Run again? (Y/N): '))
         if answer in ('Y', 'N'):
