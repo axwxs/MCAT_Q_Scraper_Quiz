@@ -2,6 +2,9 @@ from bs4 import BeautifulSoup
 import requests
 import time
 
+incorrect_list = []
+correct_list = []
+total_attempts = (len(correct_list) + len(incorrect_list))
 
 while True:
     # Main Program
@@ -15,7 +18,7 @@ while True:
     print(question)
     print()
     for i in question2:
-            print(i.text)
+        print(i.text)
 
 
     answer = soup.find('div', class_ = 'entry').find('strong')
@@ -23,15 +26,21 @@ while True:
 
     print('\n\n\n\n\n\n')
     then = time.time()
-    
+    attempt_set = set()
     # Answer must be in capital letters with options A, B, C, or D
     while True:
         attempt = input('The answer is: ')
         if attempt == final_answer:
-                print('Correct!')
-                break
+            print('Correct!')
+            break
         else:
-                print('Incorrect')
+            attempt_set.add(1)
+            print('Incorrect')
+                
+    if len(attempt_set) == 1:
+        incorrect_list.append(1)
+    else:
+        correct_list.append(1)
             
     # Answer Y to get another question or N to finish   
     while True:
@@ -48,5 +57,9 @@ while True:
         minutes = final_time // 60 
         seconds = final_time % 60
         print('\n\n')
-        print("It took: " + str(minutes) + " minutes and " + str(seconds) + " seconds")
+        print("It took: " + str(minutes) + " minutes and " + str(seconds) + " seconds\n")
         break
+        
+print('Correct: ' + str(len(correct_list)))
+print('Incorrect: ' + str(len(incorrect_list)))
+print('Percentage Correct: ' + str((len(correct_list) / (len(correct_list) + len(incorrect_list))) * 100) + '%')
