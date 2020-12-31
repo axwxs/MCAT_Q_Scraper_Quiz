@@ -20,14 +20,13 @@ while True:
     for i in question2:
         print(i.text)
 
-
     answer = soup.find('div', class_ = 'entry').find('strong')
     final_answer = list(answer.text)[-2]
 
     print('\n\n\n\n\n\n')
     then = time.time()
     attempt_set = set()
-    # Answer must be in capital letters with options A, B, C, or D
+    # Answer must be in capital letters with options A, B, C, or D. Can also skip with S.
     while True:
         attempt = input('The answer is: ')
         if attempt == final_answer:
@@ -69,4 +68,4 @@ while True:
         
 print('Correct: ' + str(len(correct_list)))
 print('Incorrect: ' + str(len(incorrect_list)))
-print('Percentage Correct: ' + str((len(correct_list) / (len(correct_list) + len(incorrect_list))) * 100) + '%')
+print('Percentage Correct: ' + str((len(correct_list) / (len(correct_list) + len(incorrect_list))) * 100) + ' %')
