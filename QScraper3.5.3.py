@@ -33,12 +33,19 @@ while True:
         if attempt == final_answer:
             print('Correct!')
             break
+        elif attempt == 'S':
+            print('Skipped')
+            attempt_set.add(1)
+            attempt_set.add(2)
+            break
         else:
             attempt_set.add(1)
             print('Incorrect')
                 
     if len(attempt_set) == 1:
         incorrect_list.append(1)
+    elif len(attempt_set) == 2:
+        continue
     else:
         correct_list.append(1)
             
