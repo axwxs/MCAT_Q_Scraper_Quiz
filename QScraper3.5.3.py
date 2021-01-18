@@ -70,4 +70,4 @@ print('Correct: ' + str(len(correct_list)))
 print('Incorrect: ' + str(len(incorrect_list)))
 print('Percentage Correct: ' + str((len(correct_list) / (len(correct_list) + len(incorrect_list))) * 100) + ' %')
 
-# Did this update properly?
+# Did this update properly? Yes it did!
