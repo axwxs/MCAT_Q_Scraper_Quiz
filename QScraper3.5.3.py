@@ -26,7 +26,7 @@ while True:
     print('\n\n\n\n\n\n')
     then = time.time()
     attempt_set = set()
-    # Answer must be in capital letters with options A, B, C, or D. Can also skip with S.
+    # Answer must be in letters with options A, B, C, or D. Can also skip with S.
     while True:
         attempt = input('The answer is: ')
         if attempt.upper() == final_answer:
