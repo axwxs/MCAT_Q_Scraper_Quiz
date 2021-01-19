@@ -29,10 +29,10 @@ while True:
     # Answer must be in capital letters with options A, B, C, or D. Can also skip with S.
     while True:
         attempt = input('The answer is: ')
-        if attempt == final_answer:
+        if attempt.upper() == final_answer:
             print('Correct!')
             break
-        elif attempt == 'S':
+        elif attempt.upper() == 'S':
             print('Skipped')
             attempt_set.add(1)
             attempt_set.add(2)
@@ -51,10 +51,10 @@ while True:
     # Answer Y to get another question or N to finish   
     while True:
         answer = str(input('Run again? (Y/N): '))
-        if answer in ('Y', 'N'):
+        if answer in ('Y', 'N', 'y', 'n'):
             break
         print("Invalid input")
-    if answer == 'Y':
+    if answer.upper() == 'Y':
         continue
     else:
         print("Goodbye")
@@ -65,9 +65,13 @@ while True:
         print('\n\n')
         print("It took: " + str(minutes) + " minutes and " + str(seconds) + " seconds\n")
         break
+
+value = (len(correct_list) / (len(correct_list) + len(incorrect_list)) * 100)
+rounded_value = round(value, 2)
         
 print('Correct: ' + str(len(correct_list)))
 print('Incorrect: ' + str(len(incorrect_list)))
-print('Percentage Correct: ' + str((len(correct_list) / (len(correct_list) + len(incorrect_list))) * 100) + ' %')
+print('Total Questions Answered: ' + str((len(correct_list) + len(incorrect_list))))
+print('Percentage Correct: ' + str(rounded_value) + ' %')
 
 # Did this update properly? Yes it did!
