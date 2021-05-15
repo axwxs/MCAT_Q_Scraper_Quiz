@@ -74,6 +74,6 @@ print('Incorrect: ' + str(len(incorrect_list)))
 print('Total Questions Answered: ' + str((len(correct_list) + len(incorrect_list))))
 print('Percentage Correct: ' + str(rounded_value) + ' %')
 
-# When was this last updated? 02/03/2021
+# When was this last updated? 05/14/2021
 # Looking to add a reset feature soon.
 # Did this update show up on git?
